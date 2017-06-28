@@ -15,8 +15,8 @@
             <url>http://repo.luricos.de/bukkit-plugins/</url>
         </repository>
         <repository>
-            <id>bukkit-repo</id>
-            <url>http://repo.bukkit.org/content/groups/public</url>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
         <repository>
             <id>pex-repo</id>
@@ -28,23 +28,7 @@
             <url>http://repo.ess3.net/content/groups/public</url>
         </repository>
     </repositories>
-    <scm>
-        <developerConnection>scm:git:git@github.com:lycano/xAuth.git</developerConnection>
-        <connection>scm:git:git://github.com/lycano/xAuth.git</connection>
-        <url>https://github.com/lycano/xAuth/tree/master/</url>
-    </scm>    
-    <distributionManagement>
-        <repository>
-            <id>bukkit-plugins-releases</id>
-            <name>repo.luricos.de releases</name>
-            <url>http://repo.luricos.de/content/repositories/releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>bukkit-plugins-snapshots</id>
-            <name>repo.luricos.de snapshots</name>
-            <url>http://repo.luricos.de/content/repositories/snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>    
+
     <build>
         <finalName>${project.artifactId}</finalName>
         <plugins>
@@ -92,41 +76,33 @@
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.7.9-R0.2</version>
+            <version>1.8.8-R0.1-SNAPSHOT</version>
             <type>jar</type>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>ru.tehkode</groupId>
             <artifactId>PermissionsEx</artifactId>
             <version>1.22.7</version>
-            <type>jar</type>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>net.ess3</groupId>
             <artifactId>EssentialsGroupManager</artifactId>
             <version>[2.13.1,2.14-SNAPSHOT)</version>
-            <type>jar</type>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>2.0-beta9</version>
-            <type>jar</type>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.8.1</version>
-            <type>jar</type>
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <dependencyManagement>
-        <dependencies>
-        </dependencies>
-    </dependencyManagement>
 </project>
