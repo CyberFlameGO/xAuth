@@ -102,6 +102,7 @@
                     <groupId>com.mojang</groupId>
                 </exclusion>
             </exclusions>
+        </dependency>
         <dependency>
             <groupId>net.ess3</groupId>
             <artifactId>EssentialsGroupManager</artifactId>
