@@ -48,6 +48,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.util.logging.Level;
+import java.util.Collection;
 
 public class xAuth extends JavaPlugin {
     private DatabaseController databaseController;
