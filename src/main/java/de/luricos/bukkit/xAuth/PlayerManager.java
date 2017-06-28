@@ -255,8 +255,8 @@ public class PlayerManager {
         this.players.clear();
         this.playerIds.clear();
 
-        Player[] players = Bukkit.getServer().getOnlinePlayers();
-        if (players.length > 0)
+        List<Player> players = Bukkit.getServer().getOnlinePlayers();
+        if (players.size() > 0)
             this.handleReload(players);
     }
 
@@ -270,7 +270,7 @@ public class PlayerManager {
         return this.tasks;
     }
 
-    public void handleReload(Player[] players) {
+    public void handleReload(List<Player> players) {
         for (Player p : players) {
             xAuthPlayer xp = getPlayer(p.getName());
             boolean mustLogin = false;
