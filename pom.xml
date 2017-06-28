@@ -77,20 +77,42 @@
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
             <version>1.8.8-R0.1-SNAPSHOT</version>
-            <type>jar</type>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>ru.tehkode</groupId>
             <artifactId>PermissionsEx</artifactId>
-            <version>1.22.7</version>
+            <version>1.23.4</version>
             <scope>provided</scope>
-        </dependency>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.bukkit</groupId>
+                    <artifactId>bukkit</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>net.gravitydevelopment.updater</groupId>
+                    <artifactId>updater</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>commons-dbcp</artifactId>
+                    <groupId>commons-dbcp</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>AccountsClient</artifactId>
+                    <groupId>com.mojang</groupId>
+                </exclusion>
+            </exclusions>
         <dependency>
             <groupId>net.ess3</groupId>
             <artifactId>EssentialsGroupManager</artifactId>
             <version>[2.13.1,2.14-SNAPSHOT)</version>
             <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.bukkit</groupId>
+                    <artifactId>bukkit</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
