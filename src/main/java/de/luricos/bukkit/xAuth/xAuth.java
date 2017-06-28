@@ -172,7 +172,7 @@ public class xAuth extends JavaPlugin {
         locationManager = new LocationManager(this);
         strikeManager = new StrikeManager(this);
 
-        List<Player> players = getServer().getOnlinePlayers();
+        Collection<? extends Player> players = getServer().getOnlinePlayers();
         if (players.size() > 0)
             playerManager.handleReload(players);
 
