@@ -11,17 +11,12 @@
     <url>https://github.com/WolfNetDevelopment/xAuth</url>
     <repositories>
         <repository>
-            <id>luricos.de-repo</id>
-            <url>http://repo.luricos.de/bukkit-plugins/</url>
-        </repository>
-        <repository>
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
         <repository>
-            <id>pex-repo</id>
-            <name>PermissionsEx Repository</name>
-            <url>http://pex-repo.aoeu.xyz/</url>
+            <id>xephi-repo</id>
+            <url>http://ci.xephi.fr/plugin/repository/everything/</url>
         </repository>
         <repository>
             <id>ess-repo</id>
