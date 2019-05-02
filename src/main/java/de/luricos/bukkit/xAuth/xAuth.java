@@ -37,7 +37,6 @@ import de.luricos.bukkit.xAuth.permissions.backends.GroupManagerSupport;
 import de.luricos.bukkit.xAuth.permissions.backends.PermissionsExSupport;
 import de.luricos.bukkit.xAuth.strike.StrikeManager;
 import de.luricos.bukkit.xAuth.tasks.xAuthTasks;
-import de.luricos.bukkit.xAuth.updater.Updater;
 import de.luricos.bukkit.xAuth.utils.xAuthLog;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.Configuration;
@@ -61,7 +60,6 @@ public class xAuth extends JavaPlugin {
 
     private PermissionManager permissionManager;
     private Configuration config;
-    private Updater updater;
 
     private xAuthCommandProvider commandProvider;
 
@@ -112,12 +110,6 @@ public class xAuth extends JavaPlugin {
             getServer().getPluginManager().disablePlugin(this);
             return;
         }
-
-        // init the updater
-        this.initUpdater();
-
-        // check for update if updater is enabled
-        this.checkUpdate();
 
         File h2File = new File("lib", "h2-" + h2Version + ".jar");
         if ((!h2File.exists()) && (!getConfig().getBoolean("mysql.enabled"))) {
@@ -328,9 +320,6 @@ public class xAuth extends JavaPlugin {
         this.config = this.getConfig();
         messageHandler.reloadConfig();
 
-        this.initUpdater();
-        this.checkUpdate();
-
         playerManager.reload();
 
         permissionManager.reset();
@@ -347,14 +336,6 @@ public class xAuth extends JavaPlugin {
         xAuthLog.info("-- Reload finished");
     }
 
-    public void initUpdater() {
-        this.updater = new Updater(this, 35934, this.getFile(), Updater.UpdateType.NO_DOWNLOAD, false);
-    }
-
-    public void checkUpdate() {
-        this.updater.run();
-    }
-
     public boolean isAutoDisable(){
         return this.getConfig().getBoolean("main.auto-disable");
     }
@@ -362,26 +343,6 @@ public class xAuth extends JavaPlugin {
     public boolean isPremiumMode() {
         return this.getConfig().getBoolean("main.check-premium");
     }
-
-    /**
-     * Get the Updater.
-     *
-     * @return the Updater
-     */
-    public static Updater getUpdater() {
-        try {
-            if (!isPluginAvailable()) {
-                // show warnings only to externals
-                if (xAuthLog.getLevel().intValue() < Level.WARNING.intValue())
-                    throw new xAuthNotAvailable("This plugin is not ready yet.");
-            }
-        } catch (xAuthNotAvailable e) {
-            xAuthLog.warning(e.getMessage());
-        }
-
-        return ((xAuth) getPlugin()).updater;
-    }
-
 
     /**
      * Get the permissionManager.
